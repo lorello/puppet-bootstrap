@@ -36,7 +36,7 @@ if [ -z "${PLATFORM}" ]; then
       echo "[Redhat ${etcrh_re} Detected]"
     elif [ -e /etc/system-release ]; then
       	amzn_re=$(egrep -o '[0-9]{4}\.[0-9]{2}' /etc/system-release | head -n 1);
-        echo "[Amazon Linux ${amzn_re} Detected]
+        echo "[Amazon Linux ${amzn_re} Detected]"
       	PLATFORM="amazonlinux"
     fi
     ;;
