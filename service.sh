@@ -41,6 +41,8 @@ if [ "$PUPPET_CRON" == "true" ]; then
   echo "Configure Puppet Cron..."
   puppet resource service puppet ensure=stopped enable=false
   puppet resource cron puppet ensure=present command="${PUPPET_CRON_CMD}" user=root minute=0
+else
+  echo "No scheduling of puppet execution required, run yourself"
 fi
 # Force a run to generate ssl sign request
 # puppet agent --test || true
