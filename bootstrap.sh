@@ -34,7 +34,7 @@ osx|mac_os_x)
   ;;
 *)
   echo "Unknown/Unsupported PLATFORM." >&2
-  echo "Usage: $0 {redhat_5|redhat_6|redhat_7|debian|ubuntu|osx} [environment] [server]" >&2
+  echo "Usage: $0 {redhat_5|redhat_6|redhat_7|amazonlinux|debian|ubuntu|osx} [environment] [server]" >&2
   exit 1
 esac
 
