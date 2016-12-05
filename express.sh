@@ -5,7 +5,7 @@
 #
 set -e
 
-BOOTSTRAP_TAR_URL=${BOOTSTRAP_TAR_URL:-"https://github.com/MiamiOH/puppet-bootstrap/archive/master.tar.gz"}
+BOOTSTRAP_TAR_URL=${BOOTSTRAP_TAR_URL:-"https://github.com/lorello/puppet-bootstrap/archive/master.tar.gz"}
 PLATFORM=${PLATFORM:-$1}
 
 # Attempt to Detect PLATFORM if not set
@@ -34,6 +34,10 @@ if [ -z "${PLATFORM}" ]; then
       etcrh_re=$(cat /etc/redhat-release | grep -o [0-9] | head -n 1)
       PLATFORM="centos_${etcrh_re}_x"
       echo "[Redhat ${etcrh_re} Detected]"
+    elif [ -e /etc/system-release ]; then
+      	amzn_re=$(egrep -o '[0-9]{4}\.[0-9]{2}' /etc/system-release | head -n 1);
+        echo "[Amazon Linux ${amzn_re} Detected]
+      	PLATFORM="amazonlinux"
     fi
     ;;
   esac
