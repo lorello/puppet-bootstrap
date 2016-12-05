@@ -22,6 +22,13 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
+echo "Running conf with the following settings:"
+echo "PUPPET_ENVIRONMENT=${PUPPET_ENVIRONMENT}"
+echo "PUPPET_CERTNAME=${PUPPET_CERTNAME}"
+echo "PUPPET_ROOT_GROUP=${PUPPET_ROOT_GROUP}"
+echo "PUPPET_SERVER=${PUPPET_SERVER}"
+echo "PUPPET_COLLECTION=${PUPPET_COLLECTION}"
+
 if [[ "${PUPPET_COLLECTION}" == "" ]]; then
   PCONF="/etc/puppet/puppet.conf"
   var_dir='/var/lib/puppet'
