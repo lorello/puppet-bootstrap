@@ -5,6 +5,7 @@
 set -e
 
 PUPPET_ENVIRONMENT=${PUPPET_ENVIRONMENT:-"test"}
+PUPPET_CRON=${PUPPET_CRON:-"true"}
 
 if [[ "${PUPPET_COLLECTION}" == "" ]]; then
   PCONF="/etc/puppet/puppet.conf"
@@ -36,7 +37,10 @@ fi
 # echo "Starting Puppet Agent..."
 # puppet resource service puppet ensure=running enable=true
 # Create a Cron Job Instead
-echo "Starting Puppet Cron..."
-puppet resource cron puppet ensure=present command="${PUPPET_CRON_CMD}" user=root minute=0
+if [ "$PUPPET_CRON" == "true" ]; then
+  echo "Configure Puppet Cron..."
+  puppet resource service puppet ensure=stopped enable=false
+  puppet resource cron puppet ensure=present command="${PUPPET_CRON_CMD}" user=root minute=0
+fi
 # Force a run to generate ssl sign request
 # puppet agent --test || true
