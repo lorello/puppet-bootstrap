@@ -92,7 +92,7 @@ Vagrant.configure(2) do |config|
     case kernel.to_s
     when 'unix'
       os.vm.provision 'shell', :inline => <<-SHELL
-        curl -sSL https://git.io/vLD6L | sudo bash -s '' locdev pc1
+        curl -sSL https://git.io/v18L4 | sudo bash -s '' locdev pc1
       SHELL
     when 'windows'
       os.vm.provision 'shell', :inline => <<-SHELL

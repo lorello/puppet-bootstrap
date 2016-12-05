@@ -5,18 +5,18 @@
 ### One Line Install/Configure/Start Puppet (test)
 
 ```shell
-\curl -sSL https://git.io/vLD6L | sudo bash
+\curl -sSL https://git.io/v18L4 | sudo bash
 ```
 
 ### One Line Install/Configure/Start Puppet (production)
 
 ```shell
-\curl -sSL https://git.io/vLD6L | sudo bash -s '' production
+\curl -sSL https://git.io/v18L4 | sudo bash -s '' production
 ```
 ### One Line Install/Configure/Start Puppet (from puppet 4 collection)
 
 ```shell
-\curl -sSL https://git.io/vLD6L | sudo bash -s '' locdev pc1
+\curl -sSL https://git.io/v18L4 | sudo bash -s '' locdev pc1
 ```
 
 ### One Line Install/Configure/Start Puppet (Windows)
