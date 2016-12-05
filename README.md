@@ -50,7 +50,7 @@ iex ($WebClient.DownloadString('https://git.io/vanax'))
 ### Advanced Install/Configure/Start Puppet
 
 ```shell
-curl -L https://github.com/MiamiOH/puppet-bootstrap/archive/master.tar.gz | tar xzv
+curl -L https://github.com/lorello/puppet-bootstrap/archive/master.tar.gz | tar xzv
 sudo puppet-bootstrap-master/bootstrap.sh osx
 rm -rf puppet-bootstrap-master
 ```
@@ -119,3 +119,5 @@ contents don't change on you unexpectedly.
 ## Contributing
 
 Fork and pull request. Simple.
+
+
