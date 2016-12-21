@@ -44,5 +44,18 @@ if [ -z "${PLATFORM}" ]; then
 fi
 
 bootstrap_tmp_path=$(mktemp -d -t puppet-bootstrap.XXXXXXXXXX)
-\curl -sSL "${BOOTSTRAP_TAR_URL}" | tar xz -C "${bootstrap_tmp_path}"
+\curl -sSL "${BOOTSTRAP_TAR_URL}" > /tmp/puppet-bootstrap.tar.gz
+if [ ! -f /tmp/puppet-bootstrap.tar.gz ]; then
+	echo "Error downloading file '${BOOTSTRAP_TAR_URL}' to /tmp/puppet-bootstrap.tar.gz"
+	rm -rf $bootstrap_tmp_path
+	exit 1
+fi
+tar xz --directory="${bootstrap_tmp_path}" --file="/tmp/puppet-bootstrap.tar.gz"
+if [ ! -f "${bootstrap_tmp_path}/puppet-bootstrap-master/bootstrap.sh" ]; then
+	echo "Error decompressing /tmp/puppet-bootstrap.tar.gz to ${bootstrap_tmp_path}"
+	exit 2
+fi
 source "${bootstrap_tmp_path}/puppet-bootstrap-master/bootstrap.sh" "$@"
+
+rm -rf /tmp/puppet-bootstrap.tar.gz ${bootstrap_tmp_path}
+
