@@ -6,7 +6,6 @@
 set -e
 
 BOOTSTRAP_TAR_URL=${BOOTSTRAP_TAR_URL:-"https://github.com/lorello/puppet-bootstrap/archive/master.tar.gz"}
-PLATFORM=${PLATFORM:-$1}
 
 # Attempt to Detect PLATFORM if not set
 if [ -z "${PLATFORM}" ]; then
@@ -55,7 +54,7 @@ if [ ! -f "${bootstrap_tmp_path}/puppet-bootstrap-master/bootstrap.sh" ]; then
 	echo "Error decompressing /tmp/puppet-bootstrap.tar.gz to ${bootstrap_tmp_path}"
 	exit 2
 fi
-source "${bootstrap_tmp_path}/puppet-bootstrap-master/bootstrap.sh"
+source "${bootstrap_tmp_path}/puppet-bootstrap-master/bootstrap.sh" "$@"
 
 rm -rf /tmp/puppet-bootstrap.tar.gz ${bootstrap_tmp_path}
 
