@@ -55,7 +55,7 @@ if [ ! -f "${bootstrap_tmp_path}/puppet-bootstrap-master/bootstrap.sh" ]; then
 	echo "Error decompressing /tmp/puppet-bootstrap.tar.gz to ${bootstrap_tmp_path}"
 	exit 2
 fi
-source "${bootstrap_tmp_path}/puppet-bootstrap-master/bootstrap.sh" "$@"
+source "${bootstrap_tmp_path}/puppet-bootstrap-master/bootstrap.sh"
 
 rm -rf /tmp/puppet-bootstrap.tar.gz ${bootstrap_tmp_path}
 
