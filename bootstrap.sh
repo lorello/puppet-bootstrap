@@ -15,14 +15,17 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
-echo "Running conf with the following settings:"
+echo "------------------------------------------"
+echo "Running $0 with the following settings:"
 echo "PLATFORM=${PLATFORM}"
 echo "BOOTSTRAP_HOME=${BOOTSTRAP_HOME}"
 echo "PUPPET_ENVIRONMENT=${PUPPET_ENVIRONMENT}"
-echo "PUPPET_CERTNAME=${PUPPET_CERTNAME}"
-echo "PUPPET_ROOT_GROUP=${PUPPET_ROOT_GROUP}"
 echo "PUPPET_SERVER=${PUPPET_SERVER}"
 echo "PUPPET_COLLECTION=${PUPPET_COLLECTION}"
+echo "PUPPET_CERTNAME=${PUPPET_CERTNAME}"
+echo "PUPPET_SCHEDULE=${PUPPET_SCHEDULE}"
+echo "PUPPET_ROOT_GROUP=${PUPPET_ROOT_GROUP}"
+echo "------------------------------------------"
 
 
 if [ "${PUPPET_ENVIRONMENT}" != "vagrant" ]; then
